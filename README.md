@@ -109,7 +109,7 @@ public interface UserMapper {
 5.测试输出结果
 
 DEBUG com.mybaits.plugin.test.UserMapper.selectMyPage 
--==>  Preparing: SELECT COUNT(1) FROM ( select id, username, password, birthday, sex, address from user ) TOTAL 
+- ==>  Preparing: SELECT COUNT(1) FROM ( select id, username, password, birthday, sex, address from user ) TOTAL 
 DEBUG com.mybaits.plugin.test.UserMapper.selectMyPage
  - ==> Parameters: 
 DEBUG com.mybaits.plugin.test.UserMapper.selectMyPage 
@@ -119,7 +119,7 @@ DEBUG com.mybaits.plugin.test.UserMapper.selectMyPage
 DEBUG com.mybaits.plugin.test.UserMapper.selectMyPage 
 - <==      Total: 3
 
-3
+3</br>
 6
 	
 	
