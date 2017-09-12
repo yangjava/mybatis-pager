@@ -6,27 +6,38 @@
 1.添加pom文件依赖
 
 
+
 <dependency>
-	<groupId>com.mybaits.plugin</groupId>
+
+	<groupId>com.mybaits.plugin</groupId>	
 	<artifactId>mybatis-pager</artifactId>
 	<version>1.0.0</version>
+	
 </dependency>
+
+
 
 2.修改sqlMapConfig.xml配置文件
 
+
 	<plugins>
+	
 		<plugin interceptor="com.mybatis.plugin.PagerInterceptor">
 			<property name="dialectType" value="mysql" />
 		</plugin>
+		
 	</plugins>
+	
 	
 
 至此,配置工作就算大功告成了,接下来通过一个简单的例子来感受一下它的使用.
 
 
+
 1.新建一个User表
 
 public class User {
+
     private Integer id;
 
 	private String username;
@@ -55,16 +66,19 @@ public interface UserMapper {
 	
 3.新建Mapper配置文件
 
+
 <select id="selectMyPage" resultMap="BaseResultMap">
+
     select 
     <include refid="Base_Column_List" />
     from user
-  </select>
+	
+ </select>
 	
 	
 4.测试分页功能	
 	
-		@Test
+	@Test
 	public void testAllPager() throws Exception {
 		// mybatis配置文件
 		String resource = "SqlMapConfig.xml";
@@ -91,11 +105,17 @@ public interface UserMapper {
 	
 5.测试输出结果
 
-DEBUG com.mybaits.plugin.test.UserMapper.selectMyPage - ==>  Preparing: SELECT COUNT(1) FROM ( select id, username, password, birthday, sex, address from user ) TOTAL 
-DEBUG com.mybaits.plugin.test.UserMapper.selectMyPage - ==> Parameters: 
-DEBUG com.mybaits.plugin.test.UserMapper.selectMyPage - ==>  Preparing: select id, username, password, birthday, sex, address from user LIMIT 0,3 
-DEBUG com.mybaits.plugin.test.UserMapper.selectMyPage - ==> Parameters: 
-DEBUG com.mybaits.plugin.test.UserMapper.selectMyPage - <==      Total: 3
+DEBUG com.mybaits.plugin.test.UserMapper.selectMyPage 
+-==>  Preparing: SELECT COUNT(1) FROM ( select id, username, password, birthday, sex, address from user ) TOTAL 
+DEBUG com.mybaits.plugin.test.UserMapper.selectMyPage
+ - ==> Parameters: 
+DEBUG com.mybaits.plugin.test.UserMapper.selectMyPage 
+- ==>  Preparing: select id, username, password, birthday, sex, address from user LIMIT 0,3 
+DEBUG com.mybaits.plugin.test.UserMapper.selectMyPage 
+- ==> Parameters: 
+DEBUG com.mybaits.plugin.test.UserMapper.selectMyPage 
+- <==      Total: 3
+
 3
 6
 	
