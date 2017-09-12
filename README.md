@@ -21,12 +21,12 @@
 
 
 
-	<plugins>
+			<plugins>
 		<plugin interceptor="com.mybatis.plugin.PagerInterceptor">
 			<property name="dialectType" value="mysql" />
 		</plugin>
 		
-	</plugins>
+			</plugins>
 	
 
 
@@ -69,13 +69,13 @@ public interface UserMapper {
 
 
 
-<select id="selectMyPage" resultMap="BaseResultMap">
+		<select id="selectMyPage" resultMap="BaseResultMap">
 
     select 
     <include refid="Base_Column_List" />
     from user
 	
- </select>
+		 </select>
 
 
 	
