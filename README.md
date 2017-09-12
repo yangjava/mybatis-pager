@@ -20,15 +20,16 @@
 2.修改sqlMapConfig.xml配置文件
 
 
+
 	<plugins>
-	
 		<plugin interceptor="com.mybatis.plugin.PagerInterceptor">
 			<property name="dialectType" value="mysql" />
 		</plugin>
 		
 	</plugins>
 	
-	
+
+
 
 至此,配置工作就算大功告成了,接下来通过一个简单的例子来感受一下它的使用.
 
@@ -67,6 +68,7 @@ public interface UserMapper {
 3.新建Mapper配置文件
 
 
+
 <select id="selectMyPage" resultMap="BaseResultMap">
 
     select 
@@ -74,7 +76,8 @@ public interface UserMapper {
     from user
 	
  </select>
-	
+
+
 	
 4.测试分页功能	
 	
